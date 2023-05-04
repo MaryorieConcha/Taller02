@@ -50,7 +50,7 @@ public class VentanaMenu extends Ventana {
     }
 
     private void generarBotonModificarInformacionCafeteria(){
-        String textoBoton = "Agregar Café";
+        String textoBoton = "Modificar Informacion Cafeteria:";
         this.botonModificarInformacionCafeteria = super.generarBoton(textoBoton,75,350,150,20);
         this.add(this.botonModificarInformacionCafeteria);
         this.botonModificarInformacionCafeteria.addActionListener(this);

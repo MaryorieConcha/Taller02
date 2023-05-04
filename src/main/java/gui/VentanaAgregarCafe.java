@@ -8,8 +8,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class VentanaAgregarCafe extends Ventana {
-    private JLabel textoEncabezado, textoCantGramosCafe, textoMililitrosAgua, textoTamaño, textoIngredienteOpcional;
-    private JTextField campoCantGramosCafe, campoMililitrosAgua, campoTamaño, campoIngredienteOpcional;
+    private JLabel textoEncabezado, textoNombreCafe, textoCantGramosCafe, textoMililitrosAgua, textoTamaño, textoIngredienteOpcional;
+    private JTextField campoNombreCafe, campoCantGramosCafe, campoMililitrosAgua, campoTamaño, campoIngredienteOpcional;
     private JButton botonAgregar, botonCancelar;
     private Cafeteria cafeteria;
 
@@ -22,6 +22,7 @@ public class VentanaAgregarCafe extends Ventana {
         generarEncabezado();
         generarBotonRegistrar();
         generarBotonCancelar();
+        generarCampoNombreCafe();
         generarCampoCantGramosCafe();
         generarCampoMililitrosAgua();
         generarCampoTamaño();
@@ -41,10 +42,17 @@ public class VentanaAgregarCafe extends Ventana {
     }
 
     private void generarBotonCancelar() {
-        String textoBoton= "Agregar";
+        String textoBoton= "Cancelar";
         this.botonCancelar = super.generarBoton(textoBoton, 75, 350, 150, 20);
         this.add(this.botonCancelar);
         this.botonCancelar.addActionListener(this);
+    }
+
+    private void generarCampoNombreCafe(){
+        String textoNombreCAfe= "Nombre del Cafe:";
+        super.generarJLabel(this.textoNombreCafe,textoNombreCAfe,20,50,150,20);
+        this.campoNombreCafe= super.generarJTextField(200,50,250,20);
+        this.add(this.campoNombreCafe);
     }
 
     private void generarCampoCantGramosCafe(){
@@ -76,8 +84,8 @@ public class VentanaAgregarCafe extends Ventana {
     }
 
     private boolean agregarCafe(){
-        return cafeteria.agregarCafe(this.campoCantGramosCafe.getText(),this.campoMililitrosAgua.getText(),
-                this.campoTamaño.getText(), this.campoIngredienteOpcional.getText());
+        return cafeteria.agregarCafe(this.campoNombreCafe.getText(),Integer.parseInt(this.campoCantGramosCafe.getText()),Integer.parseInt(this.campoMililitrosAgua.getText()),
+                Tamaño.valueOf(this.campoTamaño.getText()), IngredienteOpcional.valueOf(this.campoIngredienteOpcional.getText()));
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -88,7 +96,7 @@ public class VentanaAgregarCafe extends Ventana {
                 this.dispose();
             }
             else{
-                JOptionPane.showMessageDialog(this,"Ingrese un rut válido");
+                JOptionPane.showMessageDialog(this,"Ingrese dato válido");
             }
 
         }

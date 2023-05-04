@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cafeteria {
 	private String nombre;
@@ -49,9 +50,37 @@ public class Cafeteria {
 		this.redSocial = redSocial;
 	}
 
-	public Cafe agregarCafe(int cantGramosCafe, int mililitrosAgua, Tamaño tamaño, IngredienteOpcional ingredienteOpcional){
-		Cafe cafe = new Cafe(cantGramosCafe, mililitrosAgua, tamaño, ingredienteOpcional)
+	public Cafeteria agregarCafe(String nombreCafe, int cantGramosCafe, int mililitrosAgua, Tamaño tamaño, IngredienteOpcional ingredienteOpcional){
+		Cafe cafe = new Cafe(nombreCafe,cantGramosCafe, mililitrosAgua, tamaño, ingredienteOpcional);
 		this.cafes.add(cafe);
 		return cafe;
+	}
+
+	public boolean descontinuarCafe(String nombreCafe){
+		for (Cafe cafe : this.cafes){
+			if (cafe.getNombreCafe().equals(nombreCafe)){
+				this.cafes.remove(cafe);
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+
+	public List<Cafe> obtenerLista(String nombreCafe){
+		List
+		for (Cafe cafe : this.cafes){
+			if (this.cafes)
+		}
+	}
+
+	public List<Vehiculo> buscarAutoNombreForBasico(String nombre) {
+		List<Vehiculo> vehiculos = new ArrayList<>();
+		for (int i = 0; i < this.vehiculosAVenta.size(); i++) {
+			if (this.vehiculosAVenta.get(i).getNombre().equals(nombre)) {
+				vehiculos.add(this.vehiculosAVenta.get(i));
+			}
+		}
+		return vehiculos;
 	}
 }
