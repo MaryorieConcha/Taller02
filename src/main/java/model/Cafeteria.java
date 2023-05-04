@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import model.Cafe;
 
 public class Cafeteria {
 	private String nombre;
@@ -15,6 +14,8 @@ public class Cafeteria {
 		this.cafes = cafes;
 		this.redSocial = redSocial;
 	}
+
+	public Cafeteria(){}
 
 	public String getNombre() {
 		return nombre;
@@ -46,5 +47,11 @@ public class Cafeteria {
 
 	public void setRedSocial(RedSocial redSocial) {
 		this.redSocial = redSocial;
+	}
+
+	public Cafe agregarCafe(int cantGramosCafe, int mililitrosAgua, Tamaño tamaño, IngredienteOpcional ingredienteOpcional){
+		Cafe cafe = new Cafe(cantGramosCafe, mililitrosAgua, tamaño, ingredienteOpcional)
+		this.cafes.add(cafe);
+		return cafe;
 	}
 }

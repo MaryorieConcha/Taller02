@@ -5,7 +5,7 @@ import model.Cafeteria;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
-public class VentanaMenu extends Ventana implements JFrame {
+public class VentanaMenu extends Ventana {
     private JLabel textoEncabezado;
     private JButton botonAgregarCafe, botonDescontinuarCafe, botonObtenerListaCafe, botonModificarInformacionCafeteria;
     private Cafeteria cafeteria;
@@ -65,8 +65,12 @@ public class VentanaMenu extends Ventana implements JFrame {
             VentanaDescontinuarCafe ventanaDescontinuarCafe = new VentanaDescontinuarCafe();
             this.dispose();
         }
-        if (e.getSource() == this.botonObtenerListaCafe){
+        if (e.getSource() == this.botonModificarInformacionCafeteria){
             VentanaModificarInformacionCafeteria ventanaModificarInformacionCafeteria = new VentanaModificarInformacionCafeteria();
+            this.dispose();
+        }
+        if (e.getSource() == this.botonObtenerListaCafe){
+            VentanaObtenerLista ventanaObtenerLista = new VentanaObtenerLista();
             this.dispose();
         }
     }

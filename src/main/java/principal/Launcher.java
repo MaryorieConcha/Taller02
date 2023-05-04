@@ -1,8 +1,12 @@
 package principal;
 
+import gui.VentanaMenu;
+import model.Cafeteria;
+
 public class Launcher {
 
-	public void main(String[] args) {
-		throw new UnsupportedOperationException();
+	public static void main(String[] args) {
+		Cafeteria cafeteria = new Cafeteria();
+		VentanaMenu ventanaMenu = new VentanaMenu(cafeteria);
 	}
 }
